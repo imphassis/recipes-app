@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Thasadith&display=swap');
+
+header {
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.header-logo {
+  height: 4rem;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+header button {
+  margin-top: 10px;
+}
+
+.header-title {
+  font-family: Merienda, cursive;
+}
+
+nav {
+  align-items: center;
+  background-color: white;
+  border-top: 1px solid #e7e7e7;
+  color: white;
+  display: flex;
+  font-size: 20px;
+  height: 60px;
+  text-align: center;
+}
+
+.nav-3 {
+  justify-content: space-between;
+}
+
+.header-img {
+  margin: 10px;
+}
+
+.nav-2 .header-img {
+  left: 0;
+}
+
+header h1 {
+  color: rgb(252, 0, 0);
+  font-family: Cambiant, cursive;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.nav-2 h1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-button {
+  background-color: transparent;
+  border: none;
+  margin: 10px;
+}
+
+.search-input {
+  width: 90%;
+}
+
+.search-form {
+  background-color: whitesmoke;
+  border: 1px solid rgb(172, 172, 172);
+  border-radius: 0 0 5px 5px;
+}
+
+@media (max-width: 992px) {
+  .offcanvas {
+    width: 250px !important;
+  }
+  .offcanvas-start-lg {
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+  }
+}
+
+.navbar-nav li a {
+  color: white !important;
+}
+
+@mixin link-list {
+  a {
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    font-family: Thasadith;
+    margin: 0.3rem 0.5rem;
+  }
+
+  i {
+    margin-right: 1rem;
+  }
+}
+
+.offcanvas-header {
+  @include link-list;
+
+  .divisor {
+    display: flex;
+    margin-top: 1.2rem;
+    border-bottom: 1px solid black;
+  }
+}
+
+.Offcanvas-footer {
+  background-color: white;
+}
+
+.offcanvas-body {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include link-list;
+
+  .offcanvas-button {
+    border: none;
+    background-color: transparent;
+    text-align: start;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    font-family: Thasadith;
+    margin: 0.3rem 0;
+  }
+
+  .exit-button {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+  }
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

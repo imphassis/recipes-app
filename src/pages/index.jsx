@@ -1,0 +1,16 @@
+export { default as Comidas } from './Comidas';
+export { default as LoginPage } from './LoginPage';
+export { default as NotFound } from './NotFound';
+export { default as User } from './User';
+export { default as Bebidas } from './Bebidas';
+export { default as Explore } from './Explore';
+export { default as FoodDetails } from '../components/FoodDetails';
+export { default as MealtIngredients } from './MealIngredients';
+export { default as DrinkIngredients } from './DrinkIngredients';
+export { default as ExploreByPlace } from './ExploreByPlace';
+export { default as ExploreFood } from './ExploreMeals';
+export { default as ExploreDrink } from './ExploreDrinks';
+export { default as DrinkDetails } from './DrinkDetails';
+export { default as MealInProgress } from './MealInProgress';
+export { default as DrinkProgress } from './DrinkProgress';
+export { default as MealDetails } from './MealDetails';

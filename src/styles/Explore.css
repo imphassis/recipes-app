@@ -1,0 +1,12 @@
+.explore-buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 200px auto;
+  text-align: center;
+}
+
+
+.explore-button {
+  margin: 10px;
+}
