@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Thasadith&display=swap');
 
-
 header {
   background-color: white;
   display: flex;
@@ -66,7 +65,6 @@ header {
 
     .search-input {
       margin: 10px 5px;
-    
     }
 
     button {
@@ -125,7 +123,6 @@ header {
   }
 }
 
-
 .offcanvas-body {
   background-color: rgb(240, 240, 240);
   display: flex;
@@ -151,7 +148,7 @@ header {
     bottom: 0;
     margin-bottom: 1rem;
   }
-  
+
   button:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }

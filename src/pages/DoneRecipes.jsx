@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import useLocalStorage from 'use-local-storage-state';
 import Header from '../components/Header';
 import DoneRecipeCard from '../components/DoneRecipeCard';
-import '../styles/doneRecipes.css';
+import '../styles/doneRecipes.scss';
 
 export default function DoneRecipes() {
   const [foods, setFoods] = useState([]);
