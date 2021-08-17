@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import laCookeryLogo from '../images/laCookery.svg';
 
@@ -11,20 +12,26 @@ function Header(props) {
   const { pageName, renderButton } = props;
   const [renderSearchBar, setRenderSearchBar] = useState(false);
 
+  const showSearch = () => {
+    if (renderButton) {
+      return (
+        <button
+          className="search-button"
+          type="button"
+          onClick={() => setRenderSearchBar(!renderSearchBar)}
+        >
+          <i className="fal fa-search" />
+        </button>
+      );
+    }
+  };
+
   return (
     <header>
       <nav className={renderButton ? 'nav-3' : 'nav-2'}>
         <HamburguerMenu />
         <img src={laCookeryLogo} alt="laCookery-logo" className="header-logo" />
-        {renderButton ? (
-          <button
-            className="header-button"
-            type="button"
-            onClick={() => setRenderSearchBar(!renderSearchBar)}
-          >
-            <i className="fal fa-search" />
-          </button>
-        ) : null}
+        {showSearch()}
       </nav>
       {renderSearchBar ? <SearchBar /> : null}
     </header>

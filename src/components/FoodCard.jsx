@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { Card, CardGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
 import _ from 'lodash';
@@ -9,7 +9,6 @@ import getFood from '../services/SearchRecipe';
 export default function FoodCard({ type }) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const number = 12;
   const recipes = useSelector((state) => state.recipes);
   const { cards, formInfo, selectedCategory } = recipes;
 
@@ -33,7 +32,7 @@ export default function FoodCard({ type }) {
 
   const getId = useCallback(
     () => _.find(_.find(cards[type]), (v, k) => /id/i.test(k)),
-    [cards, type],
+    [cards, type]
   );
 
   useEffect(() => {
@@ -42,40 +41,55 @@ export default function FoodCard({ type }) {
     }
   }, [cards, getId, history, redirect, type]);
 
-  const cardsToRender = (cardsRender) => cardsRender.map(
-    (
-      {
-        idMeal,
-        strMeal,
-        strMealThumb,
-        strCategory,
-        strTags,
-        idDrink,
-        strDrink,
-        strDrinkThumb,
-        strAlcoholic,
-      },
-      index,
-    ) => (index < number ? (
-      <Link to={ `/${redirect}/${idMeal || idDrink}` } key={ index }>
-        <Card data-testid={ `${index}-recipe-card` }>
-          <Card.Header>{strCategory}</Card.Header>
+  const cardsToRender = (cardsRender) =>
+    cardsRender.map(
+      (
+        {
+          idMeal,
+          strMeal,
+          strMealThumb,
+          strCategory,
+          strTags,
+          idDrink,
+          strDrink,
+          strDrinkThumb,
+          strAlcoholic,
+          strGlass,
+          strIngredient1,
+          strIngredient2,
+          strIngredient3,
+        },
+        index
+      ) => (
+        <Link
+          to={`/${redirect}/${idDrink || idMeal}`}
+          key={index}
+          className="card"
+        >
           <Card.Img
             variant="top"
-            src={ strMealThumb || strDrinkThumb }
-            data-testid={ `${index}-card-img` }
+            src={strMealThumb || strDrinkThumb}
+            alt={strMeal}
           />
-          <Card.Body style={ { boxSizing: 'border-box' } }>
-            <Card.Title data-testid={ `${index}-card-name` }>
-              {strMeal || strDrink}
-            </Card.Title>
-            <Card.Text>{strTags || strAlcoholic}</Card.Text>
+          <Card.Body>
+            <p>
+              {strMeal}
+              <br />
+              <span>{strCategory}</span>
+            </p>
           </Card.Body>
-          <Card.Footer />
-        </Card>
-      </Link>
-    ) : null),
-  );
+          <Card.Footer>
+            <p className="ingredient-demo">
+              {`${strIngredient1} - ${strIngredient2} ${
+                strIngredient3 && strIngredient3.length < 10
+                  ? `-  ${strIngredient3}`
+                  : ''
+              }`}
+            </p>
+          </Card.Footer>
+        </Link>
+      )
+    );
 
   const getCards = () => {
     if (cards) {
@@ -83,7 +97,7 @@ export default function FoodCard({ type }) {
     }
   };
 
-  return <div className="food-cards">{getCards()}</div>;
+  return <CardGroup className="food-cards">{getCards()}</CardGroup>;
 }
 
 FoodCard.propTypes = {

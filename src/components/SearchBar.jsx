@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Nav, Dropdown, NavItem, NavLink } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-// import { sendFormData } from '../Redux/actions';
 import { sendFormData } from '../Redux/reducers/recipes';
 
 function SearchBar() {
@@ -13,15 +12,15 @@ function SearchBar() {
     dispatch(sendFormData(data));
   };
 
-  return (
-    <Form onSubmit={ handleSubmit(submitForm) } className="search-form">
+  const showForm = () => (
+    <Form onSubmit={handleSubmit(submitForm)} className="search-form">
       <Form.Group>
         <Form.Control
           className="search-input"
           name="ingrediente"
           data-testid="search-input"
           placeholder="Buscar Receita"
-          { ...register('query') }
+          {...register('query')}
         />
       </Form.Group>
       <Form.Group>
@@ -31,7 +30,7 @@ function SearchBar() {
             value="ingredient"
             data-testid="ingredient-search-radio"
             type="radio"
-            { ...register('type') }
+            {...register('type')}
           />
         </Form.Label>
         <Form.Label className="col-3">
@@ -40,7 +39,7 @@ function SearchBar() {
             value="name"
             data-testid="name-search-radio"
             type="radio"
-            { ...register('type') }
+            {...register('type')}
           />
         </Form.Label>
         <Form.Label className="col-3">
@@ -49,7 +48,7 @@ function SearchBar() {
             value="letra"
             data-testid="first-letter-search-radio"
             type="radio"
-            { ...register('type') }
+            {...register('type')}
           />
         </Form.Label>
         <Button
@@ -61,8 +60,17 @@ function SearchBar() {
           Buscar
         </Button>
       </Form.Group>
-
     </Form>
+  );
+
+  // return showForm();
+  return (
+    <Dropdown as={NavItem}>
+      <Dropdown.Toggle as={NavLink}>Click to see more…</Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Dropdown.Item>Hello there!</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 

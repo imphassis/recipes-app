@@ -11,10 +11,10 @@ export default function Home() {
     <>
       <Header pageName="Comidas" renderButton />
       <main className="food-page">
-        <FilterButtons type="meals" />
+        {/* <FilterButtons type="meals" /> */}
         <FoodCard type="meals" />
       </main>
-      <Footer />
+
     </>
   );
 }
