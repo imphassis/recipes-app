@@ -18,7 +18,7 @@ function Header(props) {
         <button
           className="search-button"
           type="button"
-          onClick={() => setRenderSearchBar(!renderSearchBar)}
+          onClick={ () => setRenderSearchBar(!renderSearchBar) }
         >
           <i className="fal fa-search" />
         </button>
@@ -28,9 +28,9 @@ function Header(props) {
 
   return (
     <header>
-      <nav className={renderButton ? 'nav-3' : 'nav-2'}>
+      <nav className={ renderButton ? 'nav-3' : 'nav-2' }>
         <HamburguerMenu />
-        <img src={laCookeryLogo} alt="laCookery-logo" className="header-logo" />
+        <img src={ laCookeryLogo } alt="laCookery-logo" className="header-logo" />
         {showSearch()}
       </nav>
       {renderSearchBar ? <SearchBar /> : null}

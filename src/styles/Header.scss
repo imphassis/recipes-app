@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Thasadith&display=swap');
 
+
 header {
   background-color: white;
   display: flex;
@@ -58,9 +59,33 @@ header {
   background-color: whitesmoke;
   border: 1px solid rgb(172, 172, 172);
   border-radius: 0 0 5px 5px;
-}
 
-@media (max-width: 992px) {
+  .search-group {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .search-input {
+      margin: 10px 5px;
+    
+    }
+
+    button {
+      margin: 0 10px;
+      border: none;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+    }
+  }
+
+  .checkbox-search {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 600px) {
   .offcanvas {
     width: 250px !important;
   }
@@ -100,9 +125,6 @@ header {
   }
 }
 
-.Offcanvas-footer {
-  background-color: white;
-}
 
 .offcanvas-body {
   background-color: rgb(240, 240, 240);
@@ -129,6 +151,7 @@ header {
     bottom: 0;
     margin-bottom: 1rem;
   }
+  
   button:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }

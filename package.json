@@ -9,7 +9,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.2",
     "clipboard-copy": "^3.1.0",
     "history": "^4.7.2",
     "immer": "^1.10.0",
@@ -56,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "bootstrap": "^5.1.0",
     "clipboardy": "^2.1.0",
     "cypress": "^3.7.0",
     "cypress-multi-reporters": "^1.4.0",

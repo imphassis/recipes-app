@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Button, Nav, Dropdown, NavItem, NavLink } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { sendFormData } from '../Redux/reducers/recipes';
 
@@ -13,65 +13,40 @@ function SearchBar() {
   };
 
   const showForm = () => (
-    <Form onSubmit={handleSubmit(submitForm)} className="search-form">
-      <Form.Group>
+    <Form onSubmit={ handleSubmit(submitForm) } className="search-form">
+      <Form.Group className="search-group">
         <Form.Control
-          className="search-input"
           name="ingrediente"
-          data-testid="search-input"
+          className="search-input"
           placeholder="Buscar Receita"
-          {...register('query')}
+          { ...register('query') }
         />
+        <button type="submit" variant="outline-secondary">
+          <i className="fad fa-search" />
+        </button>
       </Form.Group>
-      <Form.Group>
-        <Form.Label className="col-3">
-          Ingrediente
-          <Form.Check
-            value="ingredient"
-            data-testid="ingredient-search-radio"
-            type="radio"
-            {...register('type')}
-          />
-        </Form.Label>
-        <Form.Label className="col-3">
-          Nome
-          <Form.Check
-            value="name"
-            data-testid="name-search-radio"
-            type="radio"
-            {...register('type')}
-          />
-        </Form.Label>
-        <Form.Label className="col-3">
-          Letra
-          <Form.Check
-            value="letra"
-            data-testid="first-letter-search-radio"
-            type="radio"
-            {...register('type')}
-          />
-        </Form.Label>
-        <Button
-          className="col-3"
-          type="submit"
-          variant="outline-secondary"
-          data-testid="exec-search-btn"
-        >
-          Buscar
-        </Button>
+      <Form.Group className="checkbox-search">
+        <Form.Check
+          label="Ingrediente"
+          inline
+          value="ingredient"
+          data-testid="ingredient-search-radio"
+          type="radio"
+          { ...register('type') }
+        />
+        <Form.Check
+          label="Nome"
+          inline
+          value="name"
+          data-testid="name-search-radio"
+          type="radio"
+          { ...register('type') }
+        />
       </Form.Group>
     </Form>
   );
 
-  // return showForm();
-  return (
-    <Dropdown as={NavItem}>
-      <Dropdown.Toggle as={NavLink}>Click to see more…</Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item>Hello there!</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-  );
+  return showForm();
 }
 
 export default SearchBar;
