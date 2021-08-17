@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap') ;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 
 * {
   box-sizing: content-box;
 }
-
 
 .dr-share img {
   object-fit: contain;
@@ -15,20 +14,18 @@
   text-align: justify;
 }
 
-
 .done-recipe .done-container {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0 15px 30px 1px grey;
   display: flex;
   flex-flow: row nowrap;
-  height: 250px;
-  margin: 5em auto;
+  height: 240px;
+  margin: 1.2em auto;
   overflow: hidden;
   text-align: center;
   width: 95%;
 }
-
 
 .done-recipe .product-details {
   float: left;
@@ -38,41 +35,36 @@
   position: relative;
   text-align: left;
   width: 40%;
-
 }
 
 .done-recipe .done-container .product-details h1 {
   color: #344055;
-  font-family: Bebas Neue , cursive;
+  font-family: Bebas Neue, cursive;
   font-size: 25px;
   margin: 0;
   text-align: center;
-
 }
-
 
 .done-recipe .done-container .product-details > p {
   color: #7d7d7d;
-  font-family: EB Garamond , serif;
+  font-family: EB Garamond, serif;
   font-size: 18px;
   text-align: center;
-
 }
 
 .done-recipe .btn:hover {
   background: #1a66ff;
-  transform: translateY(-6px);}
+  transform: translateY(-6px);
+}
 
 .btn span {
   display: inline-block;
-  font-family: Farsan , cursive;
+  font-family: Farsan, cursive;
   font-size: 1.2em;
   margin: 0;
   padding: 10px 20px;
   transition: transform 0.3s;
-
 }
-
 
 .done-recipe .product-image {
   display: inline-block;
@@ -88,11 +80,9 @@
   object-fit: cover;
 }
 
-
 .done-recipe .info h2 {
   text-align: center;
 }
-
 
 .dr-share {
   background: transparent;
@@ -102,6 +92,32 @@
 }
 
 .favorite-btn {
-  background : transparent;
-  border : none;
+  background: transparent;
+  border: none;
+}
+
+.favorite-page {
+  margin-top: 70px;
+
+  @media screen and (min-width: 600px) {
+    .done-recipe {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .done-container {
+      height: 40vh;
+      width: 40vw;
+    }
+  }
+
+  .product-image img {
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
 }

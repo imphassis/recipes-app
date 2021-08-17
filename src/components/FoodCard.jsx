@@ -23,12 +23,12 @@ export default function FoodCard({ type }) {
   useEffect(() => {
     const getCards = () => {
       if (!cards[type].length || formInfo || selectedCategory !== type) {
-        dispatch(getFood(formInfo, type));
+        dispatch(getFood({ formInfo, type }));
       }
     };
 
     getCards();
-  }, [cards, dispatch, formInfo, selectedCategory, type]);
+  }, [dispatch, formInfo, selectedCategory, type]);
 
   const getId = useCallback(
     () => _.find(_.find(cards[type]), (v, k) => /id/i.test(k)),
@@ -49,7 +49,6 @@ export default function FoodCard({ type }) {
           strMeal,
           strMealThumb,
           strCategory,
-          strTags,
           idDrink,
           strDrink,
           strDrinkThumb,
