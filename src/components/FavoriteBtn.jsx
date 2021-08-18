@@ -10,10 +10,7 @@ import { favoriteRefactored } from '../services/RecipesLocalStorage';
 
 export default function FavoriteBtn() {
   const [bookmarked, setBookmarked] = useState();
-  const [favoriteRecipes, setFavorites] = useLocalStorageState(
-    'favoriteRecipes',
-    []
-  );
+  const [favoriteRecipes, setFavorites] = useLocalStorageState('favoriteRecipes', []);
 
   const recipe = useSelector((state) => state.recipes);
   const { singleFood } = recipe;
@@ -21,8 +18,7 @@ export default function FavoriteBtn() {
     params: { id },
   } = useRouteMatch();
 
-  const favoriteImg = () =>
-    favoriteRecipes.some((el) => el.id === id) ? blackHeart : whiteHeart;
+  const favoriteImg = () => (favoriteRecipes.some((el) => el.id === id) ? blackHeart : whiteHeart);
 
   const handleBookMark = () => {
     const magic1 = -1;
@@ -49,9 +45,9 @@ export default function FavoriteBtn() {
       variant="danger"
       className="btnheader"
       type="button"
-      onClick={handleBookMark}
+      onClick={ handleBookMark }
     >
-      <img data-testid="favorite-btn" src={favoriteImg()} alt="favorite" />
+      <img data-testid="favorite-btn" src={ favoriteImg() } alt="favorite" />
     </Button>
   );
 }
