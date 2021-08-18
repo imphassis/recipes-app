@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { Button, Offcanvas } from 'react-bootstrap';
@@ -14,7 +14,8 @@ export default function HamburguerMenu() {
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
-  const logInButton = () => {
+  const logInButton = useCallback(() => {
+    console.log('rendered');
     if (user) {
       return (
         <span>
@@ -29,7 +30,7 @@ export default function HamburguerMenu() {
         Log in
       </Link>
     );
-  };
+  }, [user]);
 
   const exitButton = () => {
     localStorage.clear();

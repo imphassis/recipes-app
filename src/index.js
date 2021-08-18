@@ -8,7 +8,7 @@ import './styles/Main.css';
 
 ReactDOM.render(
 
-  <BrowserRouter>
+  <BrowserRouter basename="/recipes-app">
     <App />
   </BrowserRouter>,
 

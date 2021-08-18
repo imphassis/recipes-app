@@ -32,7 +32,7 @@ export default function FoodCard({ type }) {
 
   const getId = useCallback(
     () => _.find(_.find(cards[type]), (v, k) => /id/i.test(k)),
-    [cards, type]
+    [cards, type],
   );
 
   useEffect(() => {
@@ -41,54 +41,53 @@ export default function FoodCard({ type }) {
     }
   }, [cards, getId, history, redirect, type]);
 
-  const cardsToRender = (cardsRender) =>
-    cardsRender.map(
-      (
-        {
-          idMeal,
-          strMeal,
-          strMealThumb,
-          strCategory,
-          idDrink,
-          strDrink,
-          strDrinkThumb,
-          strAlcoholic,
-          strGlass,
-          strIngredient1,
-          strIngredient2,
-          strIngredient3,
-        },
-        index
-      ) => (
-        <Link
-          to={`/${redirect}/${idDrink || idMeal}`}
-          key={index}
-          className="card"
-        >
-          <Card.Img
-            variant="top"
-            src={strMealThumb || strDrinkThumb}
-            alt={strMeal}
-          />
-          <Card.Body>
-            <p>
-              {strMeal}
-              <br />
-              <span>{strCategory}</span>
-            </p>
-          </Card.Body>
-          <Card.Footer>
-            <p className="ingredient-demo">
-              {`${strIngredient1} - ${strIngredient2} ${
-                strIngredient3 && strIngredient3.length < 10
-                  ? `-  ${strIngredient3}`
-                  : ''
-              }`}
-            </p>
-          </Card.Footer>
-        </Link>
-      )
-    );
+  const cardsToRender = (cardsRender) => cardsRender.map(
+    (
+      {
+        idMeal,
+        strMeal,
+        strMealThumb,
+        strCategory,
+        idDrink,
+        strDrink,
+        strDrinkThumb,
+        strAlcoholic,
+        strGlass,
+        strIngredient1,
+        strIngredient2,
+        strIngredient3,
+      },
+      index,
+    ) => (
+      <Link
+        to={ `/${redirect}/${idDrink || idMeal}` }
+        key={ index }
+        className="card"
+      >
+        <Card.Img
+          variant="top"
+          src={ strMealThumb || strDrinkThumb }
+          alt={ strMeal }
+        />
+        <Card.Body>
+          <p>
+            {strMeal}
+            <br />
+            <span>{strCategory}</span>
+          </p>
+        </Card.Body>
+        <Card.Footer>
+          <p className="ingredient-demo">
+            {`${strIngredient1} - ${strIngredient2} ${
+              strIngredient3 && strIngredient3.length < 10
+                ? `-  ${strIngredient3}`
+                : ''
+            }`}
+          </p>
+        </Card.Footer>
+      </Link>
+    ),
+  );
 
   const getCards = () => {
     if (cards) {

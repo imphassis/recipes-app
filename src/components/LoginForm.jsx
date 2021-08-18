@@ -26,7 +26,7 @@ export default function LoginForm() {
             />
           </Form.Group>
           <Form.Group className="mt-2">
-            <Form.Label className="text-info">Password:</Form.Label>
+            <Form.Label className="text-info">Password: </Form.Label>
             <Form.Control
               data-testid="password-input"
               type="password"
