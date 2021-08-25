@@ -12,7 +12,6 @@ import {
 import ShareBtn from './ShareBtn';
 import FavoriteBtn from './FavoriteBtn';
 import ShowFrame from './foodDetailsPage/ShowFrame';
-import TravelButtons from './Buttons/TravelButtons';
 
 export default function FoodDetails({ type }) {
   const recipes = useSelector((state) => state.recipes);

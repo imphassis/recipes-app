@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Card, CardGroup } from 'react-bootstrap';

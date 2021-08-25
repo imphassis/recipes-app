@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { fetchFoodCards } from '../Redux/reducers/recipes';
 
 const getFood = ({ formInfo, type }) => async (dispatch) => {
@@ -23,15 +24,16 @@ const getFood = ({ formInfo, type }) => async (dispatch) => {
     const response = await fetch(URL);
     try {
       const data = await response.json();
-      const filtered = data[type] && data[type].filter((item, index) => index < maxCards);
-      if (filtered === null && formInfo) {
-        return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      const defaultList = data[type] && data[type].filter((item, index) => index < maxCards);
+      if (defaultList === null && formInfo) {
+        return alert(empty);
       }
-
-      const list = formInfo ? data[type] : filtered;
+      const list = formInfo ? data[type] : defaultList;
       dispatch(fetchFoodCards({ filtered: list, cat: type }));
     } catch (error) {
-      throw new Error(error);
+      // throw new Error(error);
+      console.log(error);
+      dispatch(fetchFoodCards({ filtered: [], cat: type }));
     }
   };
   return fetchData();
