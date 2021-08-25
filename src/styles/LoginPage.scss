@@ -1,0 +1,27 @@
+.login-container {
+  align-items: center;
+  display: flex;
+  height: 320px;
+  justify-content: center;
+  margin-right: 2vh;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+.login-image {
+  left: 50%;
+  width: 250px;
+}
+
+.logo-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 4vh;
+}
+
+.text-info {
+  color:rgb(140,4,251)  !important;
+}

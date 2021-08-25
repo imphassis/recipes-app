@@ -1,0 +1,29 @@
+.dropdown {
+  left: 21%;
+  position: relative;
+  text-align: -webkit-center;
+  top: 10vh;
+  width: 50%;
+  z-index: 1;
+}
+
+.origem {
+  border: 2px solid black;
+  cursor: pointer;
+  left: 15px;
+  position: relative;
+}
+
+.section-place {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  position: relative;
+  top: 10vh;
+  width: 100%;
+  z-index: 0;
+
+  .card {
+    height: auto;
+  }
+}
