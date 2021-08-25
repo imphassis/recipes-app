@@ -17,8 +17,8 @@ export default function LoginForm() {
       <div className="login-container">
         <Form onSubmit={ handleSubmit(submitData) }>
           <h3 className="text-center text-info">Login</h3>
-          <Form.Group classNameName="mt-2">
-            <Form.Label className="text-info">E-mail:</Form.Label>
+          <Form.Group classNameName="text-info mt-2  ">
+            <Form.Label className="text-info ">E-mail:</Form.Label>
             <Form.Control
               data-testid="email-input"
               type="text"
@@ -26,7 +26,7 @@ export default function LoginForm() {
             />
           </Form.Group>
           <Form.Group className="mt-2">
-            <Form.Label className="text-info">Password: </Form.Label>
+            <Form.Label className="text-info ">Password: </Form.Label>
             <Form.Control
               data-testid="password-input"
               type="password"

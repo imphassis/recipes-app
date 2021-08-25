@@ -44,25 +44,25 @@ export default function FoodDrinks() {
       if (returnDrink(index) !== '') {
         drinks.push(
           <div
-            data-testid={`${index}-recomendation-card`}
+            data-testid={ `${index}-recomendation-card` }
             className="card"
-            key={`${index}-card-drink`}
+            key={ `${index}-card-drink` }
           >
             <img
               className="imgdrinks"
-              src={returnDrink(index).strDrinkThumb}
+              src={ returnDrink(index).strDrinkThumb }
               alt="imagem drink"
             />
             <p>{returnDrink(index).strAlcoholic}</p>
-            <p data-testid={`${index}-recomendation-title`}>
+            <p data-testid={ `${index}-recomendation-title` }>
               {returnDrink(index).strDrink}
             </p>
-          </div>
+          </div>,
         );
       }
     }
 
     return drinks;
   }
-  return <Carousel responsive={responsive}>{cardsDrinks()}</Carousel>;
+  return <Carousel responsive={ responsive }>{cardsDrinks()}</Carousel>;
 }

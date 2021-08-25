@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { Button, Offcanvas } from 'react-bootstrap';
 import { useLocalStorageState } from 'use-local-storage-state';
+import { useDispatch } from 'react-redux';
 import { getSurpriseURL } from '../services/FoodSurprise';
+import { clearCardCache } from '../Redux/reducers/recipes';
 
 export default function HamburguerMenu() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [user] = useLocalStorageState('user');
   const [show, setShow] = useState(false);
@@ -15,7 +18,6 @@ export default function HamburguerMenu() {
   const toggleShow = () => setShow((s) => !s);
 
   const logInButton = useCallback(() => {
-    console.log('rendered');
     if (user) {
       return (
         <span>
@@ -43,6 +45,10 @@ export default function HamburguerMenu() {
     history.push(`/${category}/${id}`);
   };
 
+  const clearCache = () => {
+    dispatch(clearCardCache());
+  };
+
   return (
     <div>
       <Button variant="outline" onClick={ toggleShow } className="me-2">
@@ -56,11 +62,11 @@ export default function HamburguerMenu() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Link to="/comidas">
+          <Link to="/comidas" onClick={ () => clearCache() }>
             <i className="fad fa-salad" />
             Comidas
           </Link>
-          <Link to="/bebidas">
+          <Link to="/bebidas" onClick={ () => clearCache() }>
             <i className="fad fa-cocktail" />
             Bebidas
           </Link>

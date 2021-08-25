@@ -62,46 +62,45 @@ export default function FoodDetails({ type }) {
     return (
 
       <main className="food-details">
-        <TravelButtons>
-          <div data-testid="0-recipe-card">
-            <img
-              className="imgreceita"
-              data-testid="recipe-photo"
-              src={ strMealThumb || strDrinkThumb }
-              alt="img"
-            />
-            <h1 data-testid="recipe-title">{strMeal || strDrink}</h1>
-            <ShareBtn />
-            <FavoriteBtn />
-            <p data-testid="recipe-category">{strAlcoholic}</p>
-            <p data-testid="instructions">{strInstructions}</p>
-            <p data-testid="recipe-category">
-              Categoria:
-              {strCategory}
-            </p>
-            <ul>
-              {listIngredients(singleFood)}
-            </ul>
-            <h2>Recommended Cards</h2>
-            {type === 'meals' && ShowFrame(singleFood)}
-          </div>
-          <div>
-            { type === 'drinks' && (<CardsFood />)}
-            {type === 'meals' && (<CardsDrinks />)}
-          </div>
-          {showRecipe(id) ? (
-            <Link
-              to={ path[type] }
-              className="btnstart btn btn-primary"
-              type="button"
-              data-testid="start-recipe-btn"
-            >
-              {buttonName()}
-            </Link>
-          ) : ('') }
-        </TravelButtons>
-      </main>
 
+        <div data-testid="0-recipe-card">
+          <img
+            className="imgreceita"
+            data-testid="recipe-photo"
+            src={ strMealThumb || strDrinkThumb }
+            alt="img"
+          />
+          <h1 data-testid="recipe-title">{strMeal || strDrink}</h1>
+          <ShareBtn />
+          <FavoriteBtn />
+          <p data-testid="recipe-category">{strAlcoholic}</p>
+          <p data-testid="instructions">{strInstructions}</p>
+          <p data-testid="recipe-category">
+            Categoria:
+            {strCategory}
+          </p>
+          <ul>
+            {listIngredients(singleFood)}
+          </ul>
+          <h2>Recommended Cards</h2>
+          {type === 'meals' && ShowFrame(singleFood)}
+        </div>
+        <div>
+          { type === 'drinks' && (<CardsFood />)}
+          {type === 'meals' && (<CardsDrinks />)}
+        </div>
+        {showRecipe(id) ? (
+          <Link
+            to={ path[type] }
+            className="btnstart btn btn-primary"
+            type="button"
+            data-testid="start-recipe-btn"
+          >
+            {buttonName()}
+          </Link>
+        ) : ('') }
+
+      </main>
     );
   }
   return 'Loading...';

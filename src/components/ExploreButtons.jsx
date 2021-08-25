@@ -21,6 +21,7 @@ export default function ExploreButtons({ type }) {
   return (
     <div className="d-flex flex-column mt-5 mx-2">
       <Button
+        variant="outline-info"
         className="m-1"
         data-testid="explore-by-ingredient"
         onClick={ () => {
@@ -32,6 +33,7 @@ export default function ExploreButtons({ type }) {
       {type === 'meals'
       && (
         <Button
+          variant="outline-success"
           className="m-1"
           data-testid="explore-by-area"
           onClick={ () => {
@@ -41,6 +43,7 @@ export default function ExploreButtons({ type }) {
           Por Local de Origem
         </Button>)}
       <Button
+        variant="outline-danger"
         className="m-1"
         data-testid="explore-surprise"
         onClick={ handleClickMeal }

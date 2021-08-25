@@ -26,22 +26,26 @@ function SearchBar() {
         </button>
       </Form.Group>
       <Form.Group className="checkbox-search">
-        <Form.Check
-          label="Ingrediente"
-          inline
-          value="ingredient"
-          data-testid="ingredient-search-radio"
-          type="radio"
-          { ...register('type') }
-        />
-        <Form.Check
-          label="Nome"
-          inline
-          value="name"
-          data-testid="name-search-radio"
-          type="radio"
-          { ...register('type') }
-        />
+        <Form.Label>
+          <Form.Check
+            inline
+            value="ingredient"
+            data-testid="ingredient-search-radio"
+            type="radio"
+            { ...register('type') }
+          />
+          Ingrediente
+        </Form.Label>
+        <Form.Label>
+          <Form.Check
+            inline
+            value="name"
+            data-testid="name-search-radio"
+            type="radio"
+            { ...register('type') }
+          />
+          Nome
+        </Form.Label>
       </Form.Group>
     </Form>
   );

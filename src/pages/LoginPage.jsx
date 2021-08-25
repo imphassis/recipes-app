@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
-import '../styles/LoginPage.css';
+import '../styles/LoginPage.scss';
 import { setToken, emailPattern } from '../services/LoginFormAPI';
 import LoginForm from '../components/LoginForm';
+import laCookeryLogo from '../images/laCookery.svg';
 
 const magicNumber = 6;
 
@@ -13,7 +14,12 @@ export default function LoginPage() {
   const methods = useForm();
 
   const watchData = (email, password) => {
-    if (password && password.length > magicNumber && email && emailPattern.test(email)) {
+    if (
+      password
+      && password.length > magicNumber
+      && email
+      && emailPattern.test(email)
+    ) {
       setDisabled(true);
     }
   };
@@ -29,6 +35,9 @@ export default function LoginPage() {
 
   return (
     <FormProvider { ...{ methods, isDisabled, watchData, submitData } }>
+      <div className="logo-container">
+        <img className="login-image" src={ laCookeryLogo } alt="food" />
+      </div>
       <LoginForm />
     </FormProvider>
   );

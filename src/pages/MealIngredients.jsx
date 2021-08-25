@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import '../styles/Ingredients.css';
-import Footer from '../components/Footer';
+import '../styles/Ingredients.scss';
 import FoodIngredients from '../components/FoodIngredients';
 
 export default function MealtIngredients() {
@@ -11,7 +10,6 @@ export default function MealtIngredients() {
       <main className="ingredient-list">
         <FoodIngredients type="meals" />
       </main>
-      <Footer />
     </>
   );
 }

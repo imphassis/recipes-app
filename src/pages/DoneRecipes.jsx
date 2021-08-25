@@ -16,17 +16,16 @@ export default function DoneRecipes() {
   const filterRecipes = (foodEl) => {
     if (foodEl) {
       const filteredRecipes = doneRecipes.filter(
-        (food) => food.type === foodEl
+        (food) => food.type === foodEl,
       );
       return setFoods(filteredRecipes);
     }
     return setFoods(doneRecipes);
   };
 
-  const cardsToRender = (cardsRender) =>
-    cardsRender.length !== 0 &&
-    cardsRender.map((el, index) => (
-      <DoneRecipeCard key={index} {...{ el, index }} />
+  const cardsToRender = (cardsRender) => cardsRender.length !== 0
+    && cardsRender.map((el, index) => (
+      <DoneRecipeCard key={ index } { ...{ el, index } } />
     ));
 
   return (
@@ -37,21 +36,21 @@ export default function DoneRecipes() {
           <Button
             variant="outline-secondary"
             data-testid="filter-by-all-btn"
-            onClick={() => filterRecipes()}
+            onClick={ () => filterRecipes() }
           >
             All
           </Button>
           <Button
             variant="outline-primary"
             data-testid="filter-by-food-btn"
-            onClick={() => filterRecipes('comida')}
+            onClick={ () => filterRecipes('comida') }
           >
             Food
           </Button>
           <Button
             variant="outline-success"
             data-testid="filter-by-drink-btn"
-            onClick={() => filterRecipes('bebida')}
+            onClick={ () => filterRecipes('bebida') }
           >
             Drinks
           </Button>

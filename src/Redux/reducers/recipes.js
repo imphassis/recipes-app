@@ -52,6 +52,9 @@ export const recipeSlice = createSlice({
       state.singleFood = singleFood;
       state.selectedCategory = selectedCategory;
     },
+    clearCardCache: (state) => {
+      state.cards = { meals: [], drinks: [], loaded: false };
+    },
   },
 });
 
@@ -63,6 +66,7 @@ export const {
   fetchFoodCategories,
   clearFormInfo,
   fetchFilteredCategory,
-  fetchDetails } = recipeSlice.actions;
+  fetchDetails,
+  clearCardCache } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

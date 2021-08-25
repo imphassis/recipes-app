@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Header from '../components/Header';
 import '../styles/Explore.css';
-import Footer from '../components/Footer';
 
 export default function Explore() {
   return (
@@ -31,7 +30,6 @@ export default function Explore() {
           </Button>
         </Link>
       </main>
-      <Footer />
     </>
   );
 }

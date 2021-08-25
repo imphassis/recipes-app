@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import SearchBar from './SearchBar';
 import laCookeryLogo from '../images/laCookery.svg';
-
 import '../styles/Header.scss';
 import HamburguerMenu from './HamburguerMenu';
 
 function Header(props) {
-  const { pageName, renderButton } = props;
+  const { renderButton } = props;
   const [renderSearchBar, setRenderSearchBar] = useState(false);
 
   const showSearch = () => {
@@ -39,7 +36,6 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  pageName: PropTypes.string.isRequired,
   renderButton: PropTypes.bool.isRequired,
 };
 

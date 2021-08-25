@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchFoodFilters, fetchFilteredCards } from '../services/FoodOrigin';
 import Header from '../components/Header';
 import FoodCard from '../components/FoodCard';
-import Footer from '../components/Footer';
-import '../styles/ExploreByPlace.css';
+import '../styles/ExploreByPlace.scss';
 
 function ExploreByPlace() {
   const dispatch = useDispatch();
@@ -24,16 +23,11 @@ function ExploreByPlace() {
       data-testid="explore-by-area-dropdown"
       onChange={ ({ target }) => dispatch(fetchFilteredCards(target.value)) }
     >
-      <option
-        data-testid="All-option"
-        name="All"
-        value="All"
-      >
+      <option data-testid="All-option" name="All" value="All">
         All
-
       </option>
 
-      { areaFood.map((area, index) => (
+      {areaFood.map((area, index) => (
         <option
           className={ index % 2 === 0 ? 'itemDark' : 'itemLight' }
           key={ index }
@@ -42,22 +36,19 @@ function ExploreByPlace() {
           data-testid={ [`${area}-option`] }
         >
           {area}
-        </option>))}
+        </option>
+      ))}
     </select>
   );
 
   return (
-    <>
-      <main className="explore-by-place">
-        <Header renderButton pageName="Explorar Origem" />
-        {dropdownOptions()}
-        <section className="section-place">
-          <FoodCard type="meals" />
-        </section>
-      </main>
-      <Footer />
-    </>
-
+    <main className="explore-by-place">
+      <Header renderButton pageName="Explorar Origem" />
+      {dropdownOptions()}
+      <section className="section-place">
+        <FoodCard type="meals" />
+      </section>
+    </main>
   );
 }
 

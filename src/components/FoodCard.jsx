@@ -49,13 +49,10 @@ export default function FoodCard({ type }) {
         strMealThumb,
         strCategory,
         idDrink,
-        strDrink,
         strDrinkThumb,
-        strAlcoholic,
-        strGlass,
         strIngredient1,
         strIngredient2,
-        strIngredient3,
+        strIngredient3, strDrink,
       },
       index,
     ) => (
@@ -71,20 +68,22 @@ export default function FoodCard({ type }) {
         />
         <Card.Body>
           <p>
-            {strMeal}
+            {strMeal || strDrink}
             <br />
             <span>{strCategory}</span>
           </p>
         </Card.Body>
-        <Card.Footer>
-          <p className="ingredient-demo">
-            {`${strIngredient1} - ${strIngredient2} ${
-              strIngredient3 && strIngredient3.length < 10
-                ? `-  ${strIngredient3}`
-                : ''
-            }`}
-          </p>
-        </Card.Footer>
+        {strIngredient1
+         && (
+           <Card.Footer>
+             <p className="ingredient-demo">
+               {`${strIngredient1} - ${strIngredient2} ${
+                 strIngredient3 && strIngredient3.length < 10
+                   ? `-  ${strIngredient3}`
+                   : ''
+               }`}
+             </p>
+           </Card.Footer>)}
       </Link>
     ),
   );

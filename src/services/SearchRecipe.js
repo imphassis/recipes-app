@@ -18,17 +18,16 @@ const getFood = ({ formInfo, type }) => async (dispatch) => {
   })();
 
   const fetchData = async () => {
+    const empty = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
     const maxCards = 12;
-    // const URL = food ? database[db][type] : database[db].name;
     const response = await fetch(URL);
-    const data = await response.json();
-    console.log(data);
-    const filtered = data[type] && data[type].filter((item, index) => index < maxCards);
-    if (filtered === null && formInfo) {
-      return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    }
-
     try {
+      const data = await response.json();
+      const filtered = data[type] && data[type].filter((item, index) => index < maxCards);
+      if (filtered === null && formInfo) {
+        return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      }
+
       const list = formInfo ? data[type] : filtered;
       dispatch(fetchFoodCards({ filtered: list, cat: type }));
     } catch (error) {

@@ -21,3 +21,16 @@ main {
   width: 2em;
   z-index: 999;
 }
+
+
+.filter-buttons {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filter-button {
+  width: 80px;
+  margin-top:10px;
+}

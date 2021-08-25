@@ -21,17 +21,16 @@ export default function FavoritePage() {
   const filterCards = (foodEl) => {
     if (foodEl) {
       const filteredRecipes = favoriteRecipes.filter(
-        (food) => food.type === foodEl
+        (food) => food.type === foodEl,
       );
       return dispatch(updateFavorites(filteredRecipes));
     }
     return dispatch(updateFavorites(favoriteRecipes));
   };
 
-  const cardsToRender = (cardsRender) =>
-    cardsRender &&
-    cardsRender.map((el, index) => (
-      <FavoriteCard key={index} {...{ el, index }} />
+  const cardsToRender = (cardsRender) => cardsRender
+    && cardsRender.map((el, index) => (
+      <FavoriteCard key={ index } { ...{ el, index } } />
     ));
 
   return (
@@ -42,21 +41,21 @@ export default function FavoritePage() {
           <Button
             variant="outline-secondary"
             data-testid="filter-by-all-btn"
-            onClick={() => filterCards()}
+            onClick={ () => filterCards() }
           >
             All
           </Button>
           <Button
             variant="outline-primary"
             data-testid="filter-by-food-btn"
-            onClick={() => filterCards('comida')}
+            onClick={ () => filterCards('comida') }
           >
             Food
           </Button>
           <Button
             variant="outline-success"
             data-testid="filter-by-drink-btn"
-            onClick={() => filterCards('bebida')}
+            onClick={ () => filterCards('bebida') }
           >
             Drinks
           </Button>

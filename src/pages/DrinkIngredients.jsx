@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import '../styles/Ingredients.css';
+import '../styles/Ingredients.scss';
 import Footer from '../components/Footer';
 import FoodIngredients from '../components/FoodIngredients';
 

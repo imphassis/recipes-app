@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,21 +18,37 @@ export default function FilterButtons({ type }) {
     dispatch(getFilteredFoodList(cat, type));
   };
 
-  const replaced = {
-    drinks: {
-      'Milk / Float / Shake': 'Milk Shake',
-      'Other/Unknown': 'Others',
-      'Ordinary Drink': 'Ordinary',
-      All: 'All',
-      Cocktail: 'Cocktail',
-      Cocoa: 'Cocoa',
+  const replaced = useCallback(
+    (category) => {
+      const drinks = {
+        'Milk / Float / Shake': 'Milk Shake',
+        'Other/Unknown': 'Others',
+        'Ordinary Drink': 'Ordinary',
+        All: 'All',
+        Cocktail: 'Cocktail',
+        Cocoa: 'Cocoa',
+      };
+      return drinks[category];
     },
+    [],
+  );
+
+  const variants = {
+    1: 'outline-primary',
+    2: 'outline-secondary',
+    3: 'outline-success',
+    4: 'outline-danger',
+    5: 'outline-warning',
+    6: 'outline-info',
+    7: 'outline-light',
+    8: 'outline-dark',
   };
 
-  const filterButtons = () => categories[type].map((categoryName) => {
-    const repl = type === 'drinks' ? replaced[type][categoryName] : categoryName;
+  const filterButtons = () => categories[type].map((categoryName, i) => {
+    const repl = type === 'drinks' ? replaced(categoryName) : categoryName;
     return (
       <Button
+        variant={ variants[i] }
         key={ categoryName }
         onClick={ () => handleFilterButton(categoryName) }
         data-testid={ `${categoryName}-category-filter` }
